@@ -5,7 +5,7 @@ class Cat {
     this._loneliness = 0;
     this._happiness = 0;
   }
-  increaseTirednes(value) {
+  increaseTiredness(value) {
     this._tiredness += value;
   }
   decreaseTiredness(value) {
@@ -29,45 +29,46 @@ class Cat {
   decreaseHappiness(value) {
     this._happiness -= value;
   }
-                             /** Cat actions */
+
+  /** Cat actions */
 
   sleep(sleepValue, happyValue) {
     this.decreaseTiredness(sleepValue), this.increaseHappiness(happyValue);
   }
 
-  eat(hungerValue, happyValue, tiredValue){
-    this.decreaseHunger(hungerValue), this.increaseHappiness(happyValue), this.increaseTirednes(tiredValue);
+  eat(hungerValue, happyValue, tiredValue) {
+    this.decreaseHunger(hungerValue),
+      this.increaseHappiness(happyValue),
+      this.increaseTiredness(tiredValue);
   }
 
-  run(tiredValue, happyValue, hungerValue){
-   this.increaseTirednes(tiredValue), this.increaseHappiness(happyValue), this.increaseHunger(hungerValue);
+  run() {
+    this.increaseTiredness(50),
+      this.increaseHappiness(20),
+      this.increaseHunger(40);
   }
 
-  printStatus(){
-   if (this._tiredness > 10){
-     console.log("The cat is tired")
-   } else {
-    console.log("The cat is not tired")
+  printStatus() {
+    if (this._tiredness > 10) {
+      console.log("The cat is tired");
+    } else {
+      console.log("The cat is not tired");
+    }
+    if (this._happiness < 10) {
+      console.log("The cat is sad");
+    } else {
+      console.log("The cat is happy");
+    }
+    if (this._hunger < 10) {
+      console.log("The cat is full");
+    } else {
+      console.log("The cat is hungry");
+    }
   }
-  if (this._happiness < 10){
-    console.log("The cat is sad")
-  } else {
-   console.log("The cat is happy")
- }
- if (this._hunger < 10){
-  console.log("The cat is full")
-} else {
- console.log("The cat is hungry")
 }
-
-
-   }
-  }
 
 const Kitty = new Cat();
 
-Kitty.sleep();
-Kitty.eat(100, 50, 20)
-Kitty.run(100, 20, 10)
-Kitty.printStatus()
-console.log(Kitty)hungerValue, happyValue, tiredValue
+Kitty.run();
+Kitty.printStatus();
+console.log(Kitty);
